@@ -6,11 +6,10 @@ import gunicorn
 
 questions = Questions().questions
 name_user = None
-
+print(gunicorn.__version__)
 
 app = Flask(__name__)
 app.config["SECRET_KEY"] = os.environ.get("FLASK_KEY")
-print(os.environ['FLASK_KEY'])
 app.config["SQLALCHEMY_DATABASE_URI"] = os.environ.get("DB_URI", "sqlite:///score-count.db")
 db = SQLAlchemy()
 db.init_app(app)
