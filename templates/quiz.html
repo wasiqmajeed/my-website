@@ -1,0 +1,101 @@
+<!DOCTYPE HTML>
+
+<html>
+	<head>
+		<title>Quiz</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="static/assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="static/assets/css/noscript.css" /></noscript>
+		<!--The script below stops the user from going back-->
+		<script type="text/javascript">
+        window.history.forward();
+        function noBack() {
+            window.history.forward();
+        }
+    	</script>
+	</head>
+	<body class="is-preload">
+		<div id="page-wrapper">
+
+			<!-- Header -->
+				<header id="header">
+					<h1 id="logo"><a href="{{url_for('home')}}">Wasiq</a></h1>
+					<nav id="nav">
+						<ul>
+							<li><a href="{{url_for('home')}}">Home</a></li>
+							<li><a href="{{url_for('education')}}">Education</a></li>
+							<li><a href="{{url_for('about_me')}}">About Me</a></li>
+							<li><a href="{{url_for('enter_details')}}" class="button primary">Quiz about Me</a></li>
+						</ul>
+					</nav>
+				</header>
+
+			<!-- Main -->
+			{%for qv in question:%}
+			<form  method="post" action="{{url_for('user_result')}}">
+
+				<h1 class="questions">{{qv["question"]}}</h1>
+
+					<div class="col-4 col-12-medium"><!--#These Radio buttons can be used for options-->
+						<input type="radio" id="priority-{{qv['options'][0]}}" name="count{{qv.id}}" value={{qv['options'][0]}} required>
+						<label for="priority-{{qv['options'][0]}}">{{qv['options'][0]}}</label>
+					</div>
+					<div class="col-4 col-12-medium"><!--#These Radio buttons can be used for options-->
+						<input type="radio" id="priority-{{qv['options'][1]}}" name="count{{qv.id}}" value={{qv['options'][1]}} required>
+						<label for="priority-{{qv['options'][1]}}">{{qv['options'][1]}}</label>
+					</div>
+					<div class="col-4 col-12-medium"><!--#These Radio buttons can be used for options-->
+						<input type="radio" id="priority-{{qv['options'][2]}}" name="count{{qv.id}}" value={{qv['options'][2]}} required>
+						<label for="priority-{{qv['options'][2]}}">{{qv['options'][2]}}</label>
+					</div>
+
+
+			{% endfor %}
+					<div class="col-12">
+						<ul class="actions">
+							<li><input type="submit" value="Submit" class="primary" /></li>
+
+						</ul>
+					</div>
+
+			</form>
+
+
+
+
+
+			<!-- Footer -->
+				<footer id="footer">
+					<ul class="icons">
+						<li><a href="#" class="icon brands alt fa-twitter"><span class="label">Twitter</span></a></li>
+						<li><a href="#" class="icon brands alt fa-facebook-f"><span class="label">Facebook</span></a></li>
+						<li><a href="#" class="icon brands alt fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
+						<li><a href="#" class="icon brands alt fa-instagram"><span class="label">Instagram</span></a></li>
+						<li><a href="#" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
+						<li><a href="#" class="icon solid alt fa-envelope"><span class="label">Email</span></a></li>
+					</ul>
+					<ul class="copyright">
+						<li>&copy; Untitled. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+					</ul>
+				</footer>
+
+		</div>
+
+		<!-- Scripts -->
+			<script src="static/assets/js/jquery.min.js"></script>
+			<script src="static/assets/js/jquery.scrolly.min.js"></script>
+			<script src="static/assets/js/jquery.dropotron.min.js"></script>
+			<script src="static/assets/js/jquery.scrollex.min.js"></script>
+			<script src="static/assets/js/browser.min.js"></script>
+			<script src="static/assets/js/breakpoints.min.js"></script>
+			<script src="static/assets/js/util.js"></script>
+			<script src="static/assets/js/main.js"></script>
+<!--			<script>-->
+<!--    if ( window.history.replaceState ) {-->
+<!--        window.history.replaceState( null, null, window.location.href );-->
+<!--    }-->
+<!--</script>-->
+
+	</body>
+</html>
